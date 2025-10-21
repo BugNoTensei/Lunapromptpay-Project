@@ -16,9 +16,9 @@ export default function PromptPayQR() {
 
   // Load saved data on mount
   useEffect(() => {
-    const savedIdType = sessionStorage.getItem("promptpay_idType");
-    const savedIdValue = sessionStorage.getItem("promptpay_idValue");
-    const savedSaveData = sessionStorage.getItem("promptpay_saveData");
+    const savedIdType = localStorage.getItem("promptpay_idType");
+    const savedIdValue = localStorage.getItem("promptpay_idValue");
+    const savedSaveData = localStorage.getItem("promptpay_saveData");
 
     if (savedSaveData === "true" && savedIdValue) {
       setIdType(savedIdType || "mobile");
@@ -100,6 +100,12 @@ export default function PromptPayQR() {
       });
 
       setQrCode(qrDataUrl);
+        setTimeout(() => {
+          window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 300);
     } catch (err) {
       setError("เกิดข้อผิดพลาดในการสร้าง QR Code: " + err.message);
     }
