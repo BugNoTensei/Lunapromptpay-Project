@@ -100,12 +100,12 @@ export default function PromptPayQR() {
       });
 
       setQrCode(qrDataUrl);
-        setTimeout(() => {
-          window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth",
-          });
-        }, 300);
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+      }, 300);
     } catch (err) {
       setError("เกิดข้อผิดพลาดในการสร้าง QR Code: " + err.message);
     }
